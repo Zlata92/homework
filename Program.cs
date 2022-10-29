@@ -1,32 +1,24 @@
-﻿int number = ReadInt("Введите число: ");
+﻿Console.WriteLine ("Введите трехзначное число ");
+int num=Convert.ToInt32 (Console.ReadLine ());
+int amount = num.ToString().Length;
 
-int count = number.ToString().Length;
-
-Console.Write(MakeArray(number, count));
-
-int ReadInt(string message)
-
+if (amount < 3 || amount>3)
+{
+    Console.WriteLine("Вы ввели не трехзначное число");
+} 
+else
+{
+    Console.WriteLine(InCenter(num));
+}   
+ int message (string message) 
 {
     Console.Write(message);
     return Convert.ToInt32(Console.ReadLine());
 }
 
-int MakeArray(int a, int b)
+int InCenter(int a)
 {
-int result = 0;
-    if (b < 3)
-    {
-        Console.Write("Третьей цифры нет: ");
-    }
-    else
-    {
-        int c = 1;
-        for (int i = b; i > 3; i--)
-        {
-            c = c * 10;
-        }
-
-        result = (a / c) % 10;
-    }
-return result;
+    
+    int result = ((a / 10) % 10);
+    return result;
 }
